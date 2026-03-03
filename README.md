@@ -117,6 +117,19 @@ http://127.0.0.1:9090/ui
 
 > 不建议直接将管理端口暴露到公网。
 
+如果执意想要**公网访问**
+编辑 `.env` 文件，设置公网访问并修改对外端口(建议范围20000–60000)：
+
+```
+sudo bash -c 'echo "EXTERNAL_CONTROLLER=0.0.0.0:9099" > /opt/clash-for-linux/.env'
+```
+
+配置完成后，**重启服务使配置生效**：
+
+```
+sudo systemctl restart clash-for-linux.service
+```
+
 ------
 
 ## ▶️ 开启 / 关闭系统代理
